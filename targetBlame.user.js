@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         !!/blame your target
-// @version      1.0
+// @version      1.0.1
 // @description  Generate targeted "!!/blame" command
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/targetBlame.meta.js
@@ -57,7 +57,13 @@
   // UI
 
   const uiIssueBlame = function(){
-    blameIssue(Number(inputBox.value));
+	var id = Number(inputBox.value);
+	if (id > 0 && id < 1000000) {
+      blameIssue(id);
+	} else {
+	  alert("Bad input");
+      return;
+	}
   };
 
   const insertRef = document.getElementById("footer-legal");
