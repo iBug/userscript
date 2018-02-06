@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         !!/blame your target
-// @version      1.0.2
+// @version      1.0.3
 // @description  Generate targeted "!!/blame" command
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/targetBlame.meta.js
@@ -60,13 +60,17 @@
   // UI
 
   const uiIssueBlame = function(){
-	var id = Number(inputBox.value);
-	if (id > 0 && id < 1000000) {
-      blameIssue(id);
-	} else {
-	  alert("Bad input");
+    if (inputBox.value === "") {
+      blameIssue(-1);
       return;
-	}
+    }
+    var id = Number(inputBox.value);
+    if (id > 0 && id < 1000000) {
+      blameIssue(id);
+    } else {
+      alert("Bad input");
+      return;
+    }
   };
 
   const insertRef = document.getElementById("footer-legal");
@@ -85,7 +89,8 @@
   insertData.setAttribute("style", "width: 60px;");
   insertRef.insertBefore(insertData, insertRef.firstChild);
   const inputBox = document.getElementById("blame-id");
-  inputBox.value = "120914";
+  //inputBox.value = "120914";  Defaults to SmokeDetector
+  inputBox.value = "";
 
   // Core functionality
 
@@ -99,6 +104,9 @@
   };
 
   const blameCreateCommand = function(id){
+    if (id < 0) {
+      return "!!/blame";
+    }
     return "!!/blame\u180E " + blameEncodeString(id);
   };
 
