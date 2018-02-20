@@ -1,7 +1,6 @@
 // ==UserScript==
 // @name         iBug's review shortcut keys
-// @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Use [/] to open post in new tab and [\] to skip
 // @author       iBug
 // @match        https://stackoverflow.com/review/*
@@ -11,19 +10,25 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
+(function(frame) {
   'use strict';
 
+  /*
   const getPostLink = function(){
-    var review_content = document.querySelector('div[class="review-content"]');
+    var review_content = frame.querySelectorAll('div.review-content')[0];
     var review_items = review_content.querySelectorAll('div');
-    var sidebar = review_items[0].querySelector('div[class="sidebar"]');
-    var postlink = sidebar.querySelector('a[target="_blank"');
+    var sidebar = review_items[0].querySelector('div.sidebar');
+    var postlink = sidebar.querySelector('a[target="_blank"]');
     return postlink;
   };
+  */
+
+  const getPostLink = function(){
+	return frame.querySelector('div.review-content div div.sidebar a[target="_blank"]');
+  }
   
   const getSkipButton = function(){
-    var skipButton = document.querySelector('input[value="Skip"]');
+    var skipButton = frame.querySelector('input[value="Skip"]');
     return skipButton;
   }
   
@@ -40,5 +45,5 @@
     }
   };
   
-  document.addEventListener('keyup', iBugKeyUpListener, false);
-})();
+  frame.addEventListener('keyup', iBugKeyUpListener, false);
+})(document);
