@@ -12,7 +12,7 @@
     'use strict';
 
     const clog = function(s) {
-        console.log("[iBug.All-AC.eval]" + s);
+        console.log("[iBug.All-AC.eval] " + s);
     };
 
     // Globals
@@ -39,7 +39,7 @@
         let items = userToolbar.getElementsByTagName("a");
         let userLink;
         for (let i = 0; i < items.length; i++) {
-            if (items[i].innerText == "Messages") {
+            if (items[i].innerText == "Messages" || items[i].innerText == "信箱") {
                 userLink = items[i].parentElement.previousElementSibling.firstChild;
                 break;
             }
