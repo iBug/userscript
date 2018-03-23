@@ -11,13 +11,19 @@
 (function(frame) {
     'use strict';
 
-    // Constants
-    const thisUser = "iBug";
+    const clog = function(s) {
+        console.log("[iBug.All-AC.eval]" + s);
+    };
+
+    // Globals
+    var thisUser = "iBug";
 
     // Utilities
+    var url = window.location.href;
+    var randSeed = 0;
+
     const randInt = function(a, b) {
-        var rnd = Math.random();
-        return Math.floor(rnd * (b-a)) + a;
+        return Math.floor(Math.random() * (b-a)) + a;
     };
 
     // Initialize stuff
@@ -27,17 +33,41 @@
         mainSection = frame.getElementById("main\"");
     }
 
+    // Try to identify current user from toolbar
+    var userToolbar = frame.getElementById("userToolbar");
+    {
+        let items = userToolbar.getElementsByTagName("a");
+        let userLink;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].innerText == "Messages") {
+                userLink = items[i].parentElement.previousElementSibling.firstChild;
+                break;
+            }
+        }
+        if (userLink != undefined) {
+            thisUser = userLink.innerText;
+            clog("Identified user: " + thisUser);
+        } else {
+            clog("User not found. Are you logged in?");
+            clog("Not logged in. Stop.");
+        }
+    }
+
     // Change result to AC
     var res = frame.querySelectorAll('p[class="compile-status"]')[0].querySelectorAll('a')[0];
     res.text = "Accepted";
 
-    // Remove Compiler error information
+    // Remove Compiler error information if exist
     res = frame.querySelectorAll('h3[class="h3-compile-status"]')[0];
     if (res != undefined) {
-        var t = res;
+        let t = res;
         res = t.nextElementSibling;  // The <pre> block
         t.remove();
         res.remove();
+        res = frame.querySelectorAll('a[name="compile-error"]')[0];
+        if (res != undefined) {
+            res.remove();
+        }
     }
 
     // Insert running information if they're missing
