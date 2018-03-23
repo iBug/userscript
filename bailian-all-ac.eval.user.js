@@ -55,6 +55,7 @@
 
     // Change result to AC
     var res = frame.querySelectorAll('p[class="compile-status"]')[0].querySelectorAll('a')[0];
+    res.href = res.href.replace(/\/*#.*$/, "");
     res.text = "Accepted";
 
     // Remove Compiler error information if exist
@@ -110,6 +111,7 @@
             let res;
             // Change result
             res = submit.querySelectorAll('td[class="result"]')[0].getElementsByTagName("a")[0];
+            res.href = res.href.replace(/\/*#.*$/, "");
             res.innerText = "Accepted";
             // Change Mem
             res = submit.querySelectorAll('td[class="memory"]')[0];
