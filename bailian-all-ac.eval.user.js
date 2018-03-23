@@ -26,7 +26,6 @@
         // It's a typo, who knows...
         mainSection = frame.getElementById("main\"");
     }
-    randSeed = strHash(url);
 
     // Change result to AC
     var res = frame.querySelectorAll('p[class="compile-status"]')[0].querySelectorAll('a')[0];
