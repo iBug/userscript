@@ -89,13 +89,13 @@
                 elm.innerText = "内存:";
                 target.parentElement.insertBefore(elm, target);
                 elm = frame.createElement("dd");
-                elm.innerText = String(fakeTime) + "kB";
+                elm.innerText = String(fakeMem) + "kB";
                 target.parentElement.insertBefore(elm, target);
                 elm = frame.createElement("dt");
                 elm.innerText = "时间:";
                 target.parentElement.insertBefore(elm, target);
                 elm = frame.createElement("dd");
-                elm.innerText = String(fakeMem) + "ms";
+                elm.innerText = String(fakeTime) + "ms";
                 target.parentElement.insertBefore(elm, target);
             }
         }
