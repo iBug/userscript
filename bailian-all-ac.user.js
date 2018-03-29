@@ -49,6 +49,11 @@
                 this.save();
             }
         },
+        removeMock: function(mockObj) {
+            if (this.isMock(mockObj)) {
+                delete this.data.mocks[mockObj.id];
+            }
+        },
         isMock: function(mockObj) {
             clog("Testing if " + String(mockObj.id) + " is mocked");
             return mockObj.id in this.data.mocks;
@@ -70,7 +75,7 @@
         },
         toString: ()=>"iBug.All-AC.localStorageObject"
     };
-    export_api("acStore", store);
+    export_api("ac_store", store);
 
     // Try to identify current user from toolbar
     var userToolbar = document.getElementById("userToolbar");
@@ -110,7 +115,6 @@
         mockList_title.style = "width: 10em";
         mockList.innerText = "[ ";
         let localMockList = store.getMocks();
-        export_api("mocklist", localMockList);
         for (let id in localMockList) {
             if (localMockList.hasOwnProperty(id)) {
                 mockList.innerText += String(id) + " ";
