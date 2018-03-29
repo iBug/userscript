@@ -17,6 +17,23 @@
 
     // Globals
     var thisUser = "iBug";
+    const store = {
+        data: {},
+        save: function() {
+            if (this.data === null || this.data === undefined) {
+                this.data = {};
+                window.localStorage.setItem("all-ac", JSON.stringify(this.data));
+            }
+        },
+        load: function() {
+            this.data = JSON.parse(window.localStorage.getItem("all-ac"));
+            if (this.data === null) {
+                this.data = {};
+                this.save();
+            }
+        },
+        toString: ()=>"iBug.All-AC.localStorageObject"
+    };
 
     // Utilities
     var url = window.location.href;
@@ -48,6 +65,10 @@
             return;
         }
     }
+
+    const minePage = function(document) {
+        let form = document.querySelectorAll('dl[class="form"]');
+    };
 
     const submissionPage = function(document) {
         clog("Running on submission page");
