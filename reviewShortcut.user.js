@@ -28,8 +28,7 @@
   }
   
   const getSkipButton = function(){
-    var skipButton = frame.querySelector('input[value="Skip"]');
-    return skipButton;
+    return frame.querySelector('input[value="Skip"]');
   }
   
   const iBugKeyUpListener = function(e){
