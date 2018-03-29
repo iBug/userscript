@@ -52,10 +52,10 @@
         removeMock: function(mockObj) {
             if (this.isMock(mockObj)) {
                 delete this.data.mocks[mockObj.id];
+                this.save();
             }
         },
         isMock: function(mockObj) {
-            clog("Testing if " + String(mockObj.id) + " is mocked");
             return mockObj.id in this.data.mocks;
         },
         save: function() {
