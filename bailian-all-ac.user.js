@@ -6,10 +6,11 @@
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/bailian-all-ac.meta.js
 // @downloadURL  https://raw.githubusercontent.com/iBug/userscript/master/bailian-all-ac.user.js
 // @match        http://bailian.openjudge.cn/practice/solution/*
+// @match        http://bailian.openjudge.cn/mine
 // @grant        none
 // ==/UserScript==
 
-((document, window, console) => {
+(function(document, window) {
     'use strict';
 
     const clog = (s) => console.log("[iBug.All-AC] " + s);
@@ -181,5 +182,8 @@
 
     if (url.startsWith("http://bailian.openjudge.cn/practice/solution/") || url.startsWith("https://bailian.openjudge.cn/practice/solution/")) {
         submissionPage(document);
+    } else {
+        clog("Unknown page URL, exiting...");
+        return;
     }
-})(document, window, console);
+})(document, window);
