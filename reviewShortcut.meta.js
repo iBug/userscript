@@ -1,7 +1,6 @@
 // ==UserScript==
 // @name         iBug's review shortcut keys
-// @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  Use [/] to open post in new tab and [\] to skip
 // @author       iBug
 // @match        https://stackoverflow.com/review/*
