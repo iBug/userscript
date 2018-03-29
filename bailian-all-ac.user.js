@@ -21,11 +21,20 @@
     // Utilities
     var url = window.location.href;
     var randSeed = 0;
-
     const randInt = function(a, b) {
         randSeed = ((randSeed * 214013) + 2531011) & 0xFFFFFFFF;
         let rnd = (randSeed >>> 16) / 65536.0;
         return Math.floor(rnd * (b-a)) + a;
+    };
+
+    const makeElement = function(type, init={}) {
+        const elm = document.createElement(type);
+        for (let i in init) {
+            if (init.hasOwnProperty(i)) {
+                elm[i] = init[i];
+            }
+        }
+        return elm;
     };
 
     // Globals
@@ -104,8 +113,7 @@
         // Create the extra menu
         store.load();
         let form = document.querySelectorAll('dl[class="form"]')[0];
-        var mock_title = document.createElement("dt"), mock_body = document.createElement("dd");
-        mock_title.innerText = "Mock";
+        var mock_title = makeElement("dt", {"innerText": "Mock"}), mock_body = document.createElement("dd");
         form.appendChild(mock_title);
         form.appendChild(mock_body);
         var infoTable = document.createElement("dl");
@@ -188,19 +196,15 @@
                     if (target != undefined && target.innerText == "语言:") {
                         clog("Detected missing mem info and time info.");
                         clog("Filling with mem=" + memText + " and time=" + timeText);
-                        elm = document.createElement("dt");
-                        elm.innerText = "内存:";
+                        elm = makeElement("dt", {"innerText": "内存:"});
                         target.parentElement.insertBefore(elm, target);
-                        elm = document.createElement("dd");
-                        elm.innerText = memText;
+                        elm = makeElement("dd", {"innerText": memText});
                         target.parentElement.insertBefore(elm, target);
                         sidebarMem = elm;
 
-                        elm = document.createElement("dt");
-                        elm.innerText = "时间:";
+                        elm = makeElement("dt", {"innerText": "时间:"});
                         target.parentElement.insertBefore(elm, target);
-                        elm = document.createElement("dd");
-                        elm.innerText = timeText;
+                        elm = makeElement("dd", {"innerText": timeText});
                         target.parentElement.insertBefore(elm, target);
                         sidebarTime = elm;
                     } else if (target != undefined && target.innerText == "内存:") {
