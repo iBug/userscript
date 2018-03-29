@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         All AC
-// @version      0.1
+// @version      0.1.5
 // @description  Just show everything as Accepted :)
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/bailian-all-ac.meta.js
@@ -137,11 +137,7 @@
         clog("Running on submission page");
 
         // Initialize stuff
-        var mainSection = document.getElementById("main");
-        if (mainSection == undefined) {
-            // It's a typo, who knows...
-            mainSection = document.getElementById("main\"");
-        }
+        var mainSection = document.getElementById("main") || document.getElementById("main\"");
         var submissionID = Number(/solution\/(\d*)/g.exec(url)[1]);
         clog("Extracted submission ID: " + String(submissionID));
         randSeed = submissionID;
@@ -152,7 +148,7 @@
         var ojResult = document.querySelectorAll('p[class="compile-status"]')[0].querySelectorAll('a')[0],
             compileStatus = document.querySelectorAll('h3[class="h3-compile-status"]')[0],
             runInfo = document.querySelectorAll('div[class="compile-info"]')[0],
-            submits = mainSection.getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+            submits = mainSection.querySelectorAll('table tbody tr');
         sidebarTitle = runInfo.firstElementChild;
         // Change result to AC
         const mock = function() {
@@ -192,21 +188,17 @@
                     }
                 }
                 if (found != undefined) {
-                    let target = found.nextElementSibling.nextElementSibling, elm;
+                    let target = found.nextElementSibling.nextElementSibling;
                     if (target != undefined && target.innerText == "语言:") {
                         clog("Detected missing mem info and time info.");
                         clog("Filling with mem=" + memText + " and time=" + timeText);
-                        elm = makeElement("dt", {"innerText": "内存:"});
-                        target.parentElement.insertBefore(elm, target);
-                        elm = makeElement("dd", {"innerText": memText});
-                        target.parentElement.insertBefore(elm, target);
-                        sidebarMem = elm;
+                        target.parentElement.insertBefore(makeElement("dt", {"innerText": "内存:"}), target);
+                        sidebarMem = makeElement("dd", {"innerText": memText});
+                        target.parentElement.insertBefore(sidebarMem, target);
 
-                        elm = makeElement("dt", {"innerText": "时间:"});
-                        target.parentElement.insertBefore(elm, target);
-                        elm = makeElement("dd", {"innerText": timeText});
-                        target.parentElement.insertBefore(elm, target);
-                        sidebarTime = elm;
+                        target.parentElement.insertBefore(makeElement("dt", {"innerText": "时间:"}), target);
+                        sidebarTime = makeElement("dd", {"innerText": timeText});
+                        target.parentElement.insertBefore(sidebarTime, target);
                     } else if (target != undefined && target.innerText == "内存:") {
                         let memDT = target,
                             memDD = memDT.nextElementSibling;
