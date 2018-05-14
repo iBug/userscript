@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         !!/blame your target
-// @version      1.0.3
+// @version      1.0.4
 // @description  Generate targeted "!!/blame" command
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/targetBlame.meta.js
@@ -65,7 +65,7 @@
       return;
     }
     var id = Number(inputBox.value);
-    if (id > 0 && id < 1000000) {
+    if (id > 0 && id < 10000000) {
       blameIssue(id);
     } else {
       alert("Bad input");
