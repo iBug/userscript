@@ -6,7 +6,7 @@
 // @contributor iBug
 // @updateURL   https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
 // @downloadURL https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
-// @version     0.4
+// @version     0.4.1
 // @match       *://meta.stackexchange.com/questions/*
 // @match       *://meta.stackoverflow.com/questions/*
 // @exclude     *://meta.stackexchange.com/questions/ask
@@ -87,7 +87,7 @@
         "and check the help center to make sure your question is on-topic for the site you've chosen.";
       $.post({
         url: "https://" + document.location.host + "/posts/" + postID + "/comments",
-        data: "fkey=" + fkey + "&comment=" + encodeURI(comment),
+        data: "fkey=" + fkey + "&comment=" + encodeURIComponent(comment),
         success: function () {
           console.log("Comment posted.");
         },
