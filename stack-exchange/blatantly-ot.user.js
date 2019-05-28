@@ -6,11 +6,17 @@
 // @contributor iBug
 // @updateURL   https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
 // @downloadURL https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
-// @version     0.4.1
+// @version     0.4.2
 // @match       *://meta.stackexchange.com/questions/*
 // @match       *://meta.stackoverflow.com/questions/*
+// @match       *://softwarerecs.stackexchange.com/questions/*
+// @match       *://softwarerecs.stackexchange.com/review/first-posts*
+// @match       *://hardwarerecs.stackexchange.com/questions/*
+// @match       *://hardwarerecs.stackexchange.com/review/first-posts*
 // @exclude     *://meta.stackexchange.com/questions/ask
 // @exclude     *://meta.stackoverflow.com/questions/ask
+// @exclude     *://softwarerecs.stackexchange.com/questions/ask
+// @exclude     *://hardwarerecs.stackexchange.com/questions/ask
 // @grant       none
 // ==/UserScript==
 
@@ -80,11 +86,15 @@
     if (!nonOwnerComment) {
       // Post comment
       let author = owner.find('div.user-details a')[0].innerText;
-      let comment = "Hi " + author + ", welcome to Meta Stack Exchange! " +
-        "This site is for discussions, bug reports, and feature requests *about* the Stack Exchange network of Q&A sites; " +
-        "unfortunately, we have to mark this question as \"off-topic\" on this site. " +
-        "Please post your question on the [correct site](https://stackexchange.com/sites), " +
-        "and check the help center to make sure your question is on-topic for the site you've chosen.";
+      let comment = window.location.host === "softwarerecs.stackexchange.com"
+      ? ("Hi " + author + ", welcome to [softwarerecs.se]! " +
+          "This question does not appear to be about software recommendations, within [the scope defined on meta](https://softwarerecs.meta.stackexchange.com/questions/tagged/scope) and in the [help center](/help/on-topic). " +
+          "If you think you can [edit] it to become on-topic, please have a look at the [question quality guidelines](https://softwarerecs.meta.stackexchange.com/q/336/32168).")
+      : ("Hi " + author + ", welcome to Meta Stack Exchange! " +
+         "This site is for discussions, bug reports, and feature requests *about* the Stack Exchange network of Q&A sites; " +
+         "unfortunately, we have to mark this question as \"off-topic\" on this site. " +
+         "Please post your question on the [correct site](https://stackexchange.com/sites), " +
+         "and check the help center to make sure your question is on-topic for the site you've chosen.");
       $.post({
         url: "https://" + document.location.host + "/posts/" + postID + "/comments",
         data: "fkey=" + fkey + "&comment=" + encodeURIComponent(comment),
