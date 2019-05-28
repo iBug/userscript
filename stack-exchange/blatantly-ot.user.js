@@ -6,7 +6,7 @@
 // @contributor iBug
 // @updateURL   https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
 // @downloadURL https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/blatantly-ot.user.js
-// @version     0.4.2
+// @version     0.4.3
 // @match       *://meta.stackexchange.com/questions/*
 // @match       *://meta.stackoverflow.com/questions/*
 // @match       *://softwarerecs.stackexchange.com/questions/*
@@ -143,7 +143,7 @@
       // Flag/vote to close (doesn't matter for the API call)
       $.post({
         url: "https://" + document.location.host + "/flags/questions/" + postID + "/close/add",
-        data: "fkey=" + fkey + "&closeReasonId=OffTopic&closeAsOffTopicReasonId=8",
+        data: "fkey=" + fkey + "&closeReasonId=OffTopic&closeAsOffTopicReasonId=" + (window.location.host === "softwarerecs.stackexchange.com" ? "1" : "8"),
         success: function () {
           // TODO: update close vote count
           console.log("Close flag/vote cast.");
