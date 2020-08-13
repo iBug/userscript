@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Awesome No Gray
 // @namespace    https://github.com/iBug
-// @version      0.2
+// @version      0.2.1
 // @description  Show all icons in solid colors!
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/fontawesome-no-gray.meta.js
@@ -16,6 +16,9 @@
 
     const updateClasses = function(mutationsList, observer) {
         var elementList = document.querySelectorAll("#results-icons a.gray4");
+        if (elementList.length === 0) {
+            return;
+        }
         console.log("Running on " + elementList.length + " icons");
         for (let i of elementList) {
             i.classList.remove("gray4");
@@ -24,12 +27,7 @@
     }
 
     const waitForTarget = function() {
-        var target = document.getElementById("results-icons");
-        if (!target) {
-            setTimeout(waitForTarget, 100);
-            return;
-        }
-        target = target.firstChild;
+        var target = document.getElementById("search-results");
         if (!target) {
             setTimeout(waitForTarget, 100);
             return;
