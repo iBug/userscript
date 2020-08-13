@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Awesome No Gray
 // @namespace    https://github.com/iBug
-// @version      0.1
+// @version      0.2
 // @description  Show all icons in solid colors!
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/fontawesome-no-gray.meta.js

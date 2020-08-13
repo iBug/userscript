@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Font Awesome No Gray
 // @namespace    https://github.com/iBug
-// @version      0.1
+// @version      0.2
 // @description  Show all icons in solid colors!
 // @author       iBug
 // @updateURL    https://raw.githubusercontent.com/iBug/userscript/master/fontawesome-no-gray.meta.js
@@ -23,8 +23,6 @@
         }
     }
 
-    const observer = new MutationObserver(updateClasses);
-
     const waitForTarget = function() {
         var target = document.getElementById("results-icons");
         if (!target) {
@@ -37,7 +35,7 @@
             return;
         }
         console.log("Watching " + target);
-        observer.observe(target, {childList: true});
+        target.addEventListener("DOMSubtreeModified", updateClasses);
         updateClasses();
     }
 
