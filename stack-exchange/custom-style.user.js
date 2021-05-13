@@ -4,7 +4,7 @@
 // @author           iBug
 // @originalauthor   CertainPerformance
 // @namespace        https://github.com/iBug/userscript
-// @version          1.3.4
+// @version          1.3.5
 // @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/custom-style.user.js
 // @downloadURL      https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/custom-style.user.js
 // @include          /^https://(?:[^/]+\.)?(?:(?:stackoverflow|serverfault|superuser|stackexchange|askubuntu|stackapps)\.com|mathoverflow\.net)//
@@ -28,12 +28,13 @@ body {
   --ff-sans: Amazon Ember,Segoe UI,sans-serif !important;
   --ff-mono: Amazon Ember Mono,Consolas,Roboto Mono,monospace !important;
 }
-.top-bar.top-bar, .topbar-dialog.topbar-dialog, .topbar-dialog.topbar-dialog .modal-content .message-text h4 {
-  font-family: inherit!important;
-}
-.s-prose code {
-  font-family: var(--ff-mono) !important;
-}
+
+.top-bar.top-bar, .topbar-dialog.topbar-dialog, .topbar-dialog.topbar-dialog .modal-content .message-text h4
+{ font-family: inherit!important; }
+
+.s-prose code,
+textarea.wmd-input, textarea#wmd-input
+{ font-family: var(--ff-mono) !important; }
 
 /* Spacing between lines, normal text: */
 .s-prose {
