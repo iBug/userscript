@@ -3,10 +3,11 @@
 // @description      My Custom Styles for GitHub
 // @author           iBug
 // @namespace        https://github.com/iBug/userscript
-// @version          1.0.0
+// @version          1.0.1
 // @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github-custom-style.user.js
 // @downloadURL      https://raw.githubusercontent.com/iBug/userscript/master/github-custom-style.user.js
-// @include          /^https://(?:[^/]+\.)?(?:github\.com)//
+// @match            *://github.com/*
+// @match            *://*.github.com/*
 // @run-at           document-start
 // @grant            none
 // ==/UserScript==
@@ -32,7 +33,8 @@ body, .markdown-body {
   font-family: var(--ff-sans) !important;
 }
 
-code, pre, tt, .text-mono {
+code, pre, tt, .text-mono,
+.blob-num, .blob-code-inner {
   font-family: var(--ff-mono) !important;
 }
 `;
