@@ -3,7 +3,7 @@
 // @description      My Custom Styles for GitHub
 // @author           iBug
 // @namespace        https://github.com/iBug/userscript
-// @version          1.0.4
+// @version          1.0.5
 // @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github-custom-style.user.js
 // @downloadURL      https://raw.githubusercontent.com/iBug/userscript/master/github-custom-style.user.js
 // @match            *://github.com/*
@@ -35,6 +35,9 @@ body, .markdown-body {
 
 code, pre, tt, .text-mono,
 .blob-num, .blob-code-inner,
+/* GitHub is already using !important,
+   so we have to double-up on selector specificity */
+.react-blob-print-hide.react-blob-print-hide,
 .react-code-text {
   font-family: var(--ff-mono) !important;
 }
