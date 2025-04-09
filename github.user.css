@@ -1,11 +1,12 @@
-// ==UserStyle==
-// @name             iBug's GitHub styles
-// @description      iBug's GitHub styles
-// @author           iBug
-// @license          MIT
-// @namespace        https://github.com/iBug/userscript
-// @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github.user.css
-// ==/UserStyle==
+/* ==UserStyle==
+@name             iBug's GitHub styles
+@description      iBug's GitHub styles
+@author           iBug
+@license          MIT
+@version          1.0.5
+@namespace        https://github.com/iBug/userscript
+@updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github.user.css
+==/UserStyle== */
 
 @-moz-document domain("github.com"), domain("*.github.com") {
 @import "https://cdn.jsdelivr.net/npm/amazon-fonts@1.0.1/fonts/stylesheet.min.css";
