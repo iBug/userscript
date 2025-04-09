@@ -3,7 +3,7 @@
 @description      iBug's GitHub styles
 @author           iBug
 @license          MIT
-@version          1.0.5
+@version          1.0.6
 @namespace        https://github.com/iBug/userscript
 @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github.user.css
 ==/UserStyle== */
@@ -12,12 +12,12 @@
 @import "https://cdn.jsdelivr.net/npm/amazon-fonts@1.0.1/fonts/stylesheet.min.css";
 
 body {
-    --ff-sans: Amazon Ember, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
-    --ff-mono: Fira Code iBug, Fira Code, Amazon Ember Mono, Consolas, Roboto Mono, monospace !important;
+    --fontStack-sansSerif: Amazon Ember, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
+    --fontStack-monospace: Fira Code iBug, Fira Code, Amazon Ember Mono, Consolas, Roboto Mono, monospace !important;
 }
 
 body, .markdown-body {
-    font-family: var(--ff-sans) !important;
+    font-family: var(--fontStack-sansSerif) !important;
 }
 
 code, pre, tt, .text-mono,
@@ -26,6 +26,6 @@ code, pre, tt, .text-mono,
    so we have to double-up on selector specificity */
 .react-blob-print-hide.react-blob-print-hide,
 .react-code-text {
-    font-family: var(--ff-mono) !important;
+    font-family: var(--fontStack-monospace) !important;
 }
 }
