@@ -1,0 +1,15 @@
+/* ==UserStyle==
+@name           USTC Mail without watermark
+@namespace      github.com/iBug/userscript
+@version        1.0.0
+@description    Disable watermark on USTC Mail
+@author         iBug
+@updateURL      https://raw.githubusercontent.com/iBug/userscript/master/ustc-mail-no-watermark.user.css
+==/UserStyle== */
+
+@-moz-document domain("mail.ustc.edu.cn") {
+.watermark-wrap {
+  display: none;
+  opacity: 0;
+}
+}
