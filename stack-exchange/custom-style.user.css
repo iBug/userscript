@@ -1,14 +1,14 @@
 /* ==UserStyle==
 @name             Stack Exchange Custom Style
 @namespace        github.com/iBug/userscript
-@version          1.3.6
+@version          1.3.7
 @description      My Custom Styles for Stack Exchange
 @author           iBug
 @originalauthor   CertainPerformance
 @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/stack-exchange/custom-style.user.css
 ==/UserStyle== */
 
-@-moz-document regexp("^https://(?:[^/]+\\.)?(?:(?:stackoverflow|serverfault|superuser|stackexchange|askubuntu|stackapps)\\.com|mathoverflow\\.net)/") {
+@-moz-document domain("stackoverflow.com"), domain("superuser.com"), domain("serverfault.com"), domain("stackexchange.com"), domain("askubuntu.com"), domain("stackapps.com"), domain("mathoverflow.net") {
 body {
   --ff-sans: Amazon Ember,Segoe UI,sans-serif !important;
   --ff-mono: Amazon Ember Mono,Consolas,Roboto Mono,monospace !important;
