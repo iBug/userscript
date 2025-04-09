@@ -1,0 +1,30 @@
+// ==UserStyle==
+// @name             iBug's GitHub styles
+// @description      iBug's GitHub styles
+// @author           iBug
+// @license          MIT
+// @namespace        https://github.com/iBug/userscript
+// @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github.user.css
+// ==/UserStyle==
+
+@-moz-document domain("github.com"), domain("*.github.com") {
+@import "https://cdn.jsdelivr.net/npm/amazon-fonts@1.0.1/fonts/stylesheet.min.css";
+
+body {
+    --ff-sans: Amazon Ember, Microsoft YaHei UI, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
+    --ff-mono: Fira Code iBug, Fira Code, Amazon Ember Mono, Consolas, Roboto Mono, monospace !important;
+}
+
+body, .markdown-body {
+    font-family: var(--ff-sans) !important;
+}
+
+code, pre, tt, .text-mono,
+.blob-num, .blob-code-inner,
+/* GitHub is already using !important,
+   so we have to double-up on selector specificity */
+.react-blob-print-hide.react-blob-print-hide,
+.react-code-text {
+    font-family: var(--ff-mono) !important;
+}
+}
