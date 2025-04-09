@@ -3,7 +3,7 @@
 @description      iBug's GitHub styles
 @author           iBug
 @license          MIT
-@version          1.0.6
+@version          1.0.7
 @namespace        https://github.com/iBug/userscript
 @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/github.user.css
 ==/UserStyle== */
@@ -17,15 +17,6 @@ body {
 }
 
 body, .markdown-body {
-    font-family: var(--fontStack-sansSerif) !important;
-}
-
-code, pre, tt, .text-mono,
-.blob-num, .blob-code-inner,
-/* GitHub is already using !important,
-   so we have to double-up on selector specificity */
-.react-blob-print-hide.react-blob-print-hide,
-.react-code-text {
-    font-family: var(--fontStack-monospace) !important;
+    font-family: var(--fontStack-sansSerif);
 }
 }
