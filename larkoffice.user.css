@@ -1,0 +1,17 @@
+/* ==UserStyle==
+@name             LarkOffice style
+@namespace        github.com/iBug/userscript
+@updateURL        https://raw.githubusercontent.com/iBug/userscript/master/larkoffice.user.css
+@version          1.0.0
+@description      My Custom Styles for LarkOffice
+@author           iBug
+==/UserStyle== */
+
+@-moz-document domain("larkoffice.com") {
+    #watermark, .ssrWaterMark {
+        display: none !important;
+    }
+    body > div > div > div > div.suite-clear {
+        display: none !important;
+    }
+}
