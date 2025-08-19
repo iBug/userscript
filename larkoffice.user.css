@@ -2,7 +2,7 @@
 @name             LarkOffice style
 @namespace        github.com/iBug/userscript
 @updateURL        https://raw.githubusercontent.com/iBug/userscript/master/larkoffice.user.css
-@version          1.0.0
+@version          1.0.1
 @description      My Custom Styles for LarkOffice
 @author           iBug
 ==/UserStyle== */
@@ -11,7 +11,7 @@
     #watermark, .ssrWaterMark {
         display: none !important;
     }
-    body > div > div > div > div.suite-clear {
+    body > div > div > div > div[style*="background-repeat"] {
         display: none !important;
     }
 }
