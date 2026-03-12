@@ -1,0 +1,29 @@
+/* ==UserStyle==
+@name             ByteDance style
+@namespace        github.com/iBug/userscript
+@version          1.0.0
+@description      Custom Styles for ByteDance
+@updateURL        https://raw.githubusercontent.com/iBug/userscript/master/bytedance.user.css
+@author           iBug
+==/UserStyle== */
+
+#watermark, .ssrWaterMark, .brightWatermark, .__wm, #dpWmColor,
+#bytedance-gitlab-watermark, #bytedance-gitlab-steam-mark,
+body > div > div > div > div.suite-clear,
+body > div > div > div > div[style*="background-repeat"],
+body > div > div > div > div > div[style*="z-index:9999"],
+#bytecloud-notification-wrapper + div,
+#bytecloud-notification-wrapper + div + div,
+body > div[style*="background-repeat: repeat"],
+body > div[style*="background-repeat:repeat"],
+body > div[style*="inset: 0px !important"],
+body > div[style*="inset: 0!important"],
+body > div[style*="visible !important"],
+body > div[style*="position: fixed;"][style*="z-index: 9999;"],
+body > div[style*="position: fixed;"][style*="z-index: 999999;"]{
+    display: none !important;
+    opacity: 0 !important;
+    filter: opacity(0) !important;
+    transform: scale(0) !important;
+}
+
