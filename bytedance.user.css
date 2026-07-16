@@ -28,8 +28,9 @@ body > div[style*="position: fixed;"][style*="z-index: 999999;"]{
 }
 
 @-moz-document domain("feishu.cn"), domain("larkoffice.com") {
-    body#zh-CN, body.larktab-body, body.larktab-body button, body.larktab-body input, body.larktab-body select, body.larktab-body textarea, body.larktab-body#zh-CN, body.larktab-body#zh-CN button, body.larktab-body#zh-CN input, body.larktab-body#zh-CN select, body.larktab-body#zh-CN textarea, body.larktab-body#zh-HK, body.larktab-body#zh-HK button, body.larktab-body#zh-HK input, body.larktab-body#zh-HK select, body.larktab-body#zh-HK textarea, body.larktab-body#zh-TW, body.larktab-body#zh-TW button, body.larktab-body#zh-TW input, body.larktab-body#zh-TW select, body.larktab-body#zh-TW textarea {
-        font-family: LarkHackSafariFont,LarkEmojiFont,LarkChineseQuote,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft Yahei,Arial,Hiragino Sans GB,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji
+    body#zh-CN, body.larktab-body, body.larktab-body button, body.larktab-body input, body.larktab-body select, body.larktab-body textarea, body.larktab-body#zh-CN, body.larktab-body#zh-CN button, body.larktab-body#zh-CN input, body.larktab-body#zh-CN select, body.larktab-body#zh-CN textarea, body.larktab-body#zh-HK, body.larktab-body#zh-HK button, body.larktab-body#zh-HK input, body.larktab-body#zh-HK select, body.larktab-body#zh-HK textarea, body.larktab-body#zh-TW, body.larktab-body#zh-TW button, body.larktab-body#zh-TW input, body.larktab-body#zh-TW select, body.larktab-body#zh-TW textarea,
+    .i18n-zh, .i18n-zh button, .i18n-zh input, .i18n-zh pre, .i18n-zh select, .i18n-zh textarea, .larkc-zh-CN, .larkc-zh-CN button, .larkc-zh-CN input, .larkc-zh-CN pre, .larkc-zh-CN select, .larkc-zh-CN textarea, html[lang=zh-CN] body, html[lang=zh-CN] body button, html[lang=zh-CN] body input, html[lang=zh-CN] body pre, html[lang=zh-CN] body select, html[lang=zh-CN] body textarea {
+        font-family: LarkHackSafariFont,LarkEmojiFont,LarkChineseQuote,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Roboto,Microsoft Yahei,Arial,Hiragino Sans GB,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji
     }
 
     .mobile .inline-code, .windows .inline-code,
